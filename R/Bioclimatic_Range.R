@@ -1,3 +1,12 @@
+# ---------------------------------------------------------------------------------------------- #
+# Script to calculate bioclimatic range position per species population (site)
+# Author: [LE, YM]
+# Inputs: 
+#   - Data from eBMS license agreement & ECAD website (https://www.ecad.eu/).
+# Outputs:
+#   - Bioclimatic Range position. Available at Zenodo.
+## ---------------------------------------------------------------------------------------------- #
+
 # Function to generate a standardized range position
 standardrange <- function(x) {
   x <- na.omit(x)  # Remove missing values
@@ -10,11 +19,11 @@ standardrange <- function(x) {
 }
 
 # Compute the mean climatic value at each site and standardize range position for each species
-data <- ym_butterflydatatrim %>%
+data <- data.ebms %>%
   group_by(site) %>%
   distinct(year, .keep_all = TRUE) %>%  # Ensure only unique year entries per site
   summarise(sitemeanWeatherPeriod = mean(clima.site, na.rm = TRUE)) %>%  # Compute mean climate per site
-  right_join(ym_butterflydatatrim, by = "site") %>%  # Merge with original dataset
+  right_join(data.ebms, by = "site") %>%  # Merge with original dataset
   group_by(species) %>%  # Process data per species
   mutate(rangeposition = standardrange(sitemeanWeatherPeriod)) %>%
   ungroup()  # Ensure calculations apply independently per species
