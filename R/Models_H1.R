@@ -7,14 +7,17 @@
 #   - model results, predictions and plots
 ## ---------------------------------------------------------------------------------------------- #
 
-# 1. Quadratic models to be performed separately for locally and globally adapted species
-Data_analyses <- data.frame(Data_analyses %>%
-                     group_by(site, species) %>%
-                     mutate(
-                       n_change = log((lead(Nt)/Nt))
-                     ))
+library(tidyverse)
+library(ggplot2)
+library(lmerTest)
+library(ggeffects)
 
-gr.model<-lmer(n_change ~logNt +rangeposition*local.anomaly+I(local.anomaly^2)+(1|species) +(1|site),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)) ,REML = T ,data=butterflydatadens.global)
+Data_analyses <-read.csv2("Data/Data_Analyses.csv")
+
+# 1. Quadratic models to be performed separately for locally and globally adapted species. One example used
+
+Data_analyses.local<- Data_analyses %>% filter(adaptation == "Local")
+gr.model<-lmer(n_change ~log(Nt) +rangeposition*local.anomaly+I(local.anomaly^2)+(1|species) +(1|site),control=lmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)) ,REML = T ,data=Data_analyses.local)
 
 # 2. Model predictions
 vals <- seq(1, -1, by = -0.1)
@@ -26,7 +29,7 @@ pal <- rev(c("#FF0000FF", "#FF0000FF", "#FF2A00FF", "#FF5500FF", "#FF8000FF", "#
              "#FFFF00FF", "#FFFF40FF", "#FFFFBFFF", "#FFFFBFFF", "#F7FBFF", "#DEEBF7", "#C6DBEF",
              "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B", "#08306B"))
 
-plot1 <- ggplot(mydf.gr, aes(x, predicted, colour = group)) + 
+plot1 <- ggplot(mydf.predicted, aes(x, predicted, colour = group)) + 
   geom_line(size = 1) +
   scale_color_manual(values = pal) +
   coord_cartesian(xlim = c(-7, 5), ylim = c(-1, 0.5)) +

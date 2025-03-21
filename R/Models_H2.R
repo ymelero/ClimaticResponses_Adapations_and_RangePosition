@@ -28,7 +28,6 @@ mydf.predicted2 <- ggpredict(Abd.model, terms = c("Timeseries[all]",
 mydf.predicted2 <- mydf.predicted2 %>%
   mutate(predicted.exp = (exp(2 * predicted) - 1) / (2 * exp(predicted)))
 
-
 # 4. Plot predictions
 plot2<- ggplot(mydf.predicted2, aes(x, predicted.exp, colour = group)) + 
   geom_line(linewidth = 1) +
