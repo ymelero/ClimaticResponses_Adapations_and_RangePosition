@@ -16,4 +16,4 @@ Note: The code includes the general template codes to be used for the analyses:
 4. Models_2.R: Models for abundance over time in relation to the local climatic anomalies and range position. Models were done per species category based on the provided code.
 5. Models_H1_Pheno.R: Models for population growth rate in relation to the local climatic anomalies and range position, including phylogeny (as we observed an effect in the species responses in terms of population growth rate to climcatic anomalies at Melero et al (2022) doi: 10.1038/s42003-022-03088-3. Models were done per species category based on the provided code. 
 
-
+Important: Please be aware that Data is lisenced under Non-Commercial Creative Commons 4.0 use.
