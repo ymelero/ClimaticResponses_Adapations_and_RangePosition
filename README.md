@@ -5,7 +5,7 @@ Yolanda Melero, Luke C. Evans, Mikko Kuussaari, Reto Schmucki, Constantí Stefan
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15065537.svg)](https://doi.org/10.5281/zenodo.15065537)
 
-Note: The datasets used for this study are available from the European Butterfly Monitor Scheme (eBMS) via a signed license agreement (https://butterfly-monitoring.net/). The dataset generated for the analyses of the study is available in the folder /dara and in Zenodo at 10.5281/zenodo.15012265. Climatic data are available via ECAD website (https://www.ecad.eu/). For the phylogenetic models, the Butterflies_Europe_tree.nwk is available from Dapporto et al (2019) Doi 10.1111/1755-0998.13059, and from Wiemers et al (2020) doi 10.3897/zookeys.938.50878.
+Note: The datasets used for this study are available from the European Butterfly Monitor Scheme (eBMS) via a signed license agreement (https://butterfly-monitoring.net/). The dataset generated for the analyses of the study is available in the folder /data and in Zenodo at 10.5281/zenodo.15012265. Climatic data are available via ECAD website (https://www.ecad.eu/). For the phylogenetic models, the Butterflies_Europe_tree.nwk is available from Dapporto et al (2019) Doi 10.1111/1755-0998.13059, and from Wiemers et al (2020) doi 10.3897/zookeys.938.50878.
 
 The code to calculate the index of abundances (Nt) is available at: https://github.com/RetoSchmucki/rbms
 
