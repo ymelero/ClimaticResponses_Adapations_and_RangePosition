@@ -2,8 +2,8 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": false
+            "ascending": true
         }
     ],
-    "path": "~/Documents/GITHUB/ClimaticResponses_Adapations_and_RangePosition/Data"
+    "path": "~/Documents/GITHUB/ClimaticResponses_Adapations_and_RangePosition/R"
 }
